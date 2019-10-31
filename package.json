@@ -13,6 +13,7 @@
     "@react-native-community/async-storage": "^1.6.2",
     "react": "16.9.0",
     "react-native": "0.61.3",
+    "react-native-vector-icons": "^6.6.0",
     "reactotron-react-native": "^4.0.2"
   },
   "devDependencies": {
