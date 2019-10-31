@@ -5,7 +5,7 @@ const App = () => {
     return (
         <View
             style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>maneiro</Text>
+            <Text>Rocketshoes</Text>
         </View>
     );
 };
