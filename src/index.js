@@ -1,15 +1,12 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-const App = () => {
-    return (
-        <View
-            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Rocketshoes</Text>
-            <Icon name="shopping-basket" size={24} color="#000" />
-        </View>
-    );
-};
+import Cart from './pages/Cart';
+import Home from './pages/Home';
 
-export default App;
+const AppNavigator = createStackNavigator({
+    Home,
+    Cart,
+});
+
+export default createAppContainer(AppNavigator);
