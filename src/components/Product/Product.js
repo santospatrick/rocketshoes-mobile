@@ -14,7 +14,7 @@ import {
     ButtonText,
 } from './styles';
 
-const Product = ({ item }) => {
+const Product = ({ item, navigation }) => {
     return (
         <Container>
             <Image
@@ -28,7 +28,7 @@ const Product = ({ item }) => {
                     <Title>{item.title}</Title>
                     <Price>{item.formattedPrice}</Price>
                 </InfoText>
-                <Button>
+                <Button onPress={() => navigation.navigate('Cart')}>
                     <Counter>
                         <Icon name="add-shopping-cart" color="#FFF" size={20} />
                         <CounterText>3</CounterText>

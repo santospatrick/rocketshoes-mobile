@@ -1,12 +1,14 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import React from 'react';
+import { StatusBar } from 'react-native';
+import Routes from './routes';
 
-import Cart from './pages/Cart';
-import Home from './pages/Home';
+const App = () => {
+    return (
+        <>
+            <Routes />
+            <StatusBar barStyle="light-content" />
+        </>
+    );
+};
 
-const AppNavigator = createStackNavigator({
-    Home,
-    Cart,
-});
-
-export default createAppContainer(AppNavigator);
+export default App;

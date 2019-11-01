@@ -4,7 +4,7 @@ import { Container, HorizontalScroll } from './styles';
 import api from '../../services/api';
 import { formatPrice } from '../../util/format';
 
-const Home = () => {
+const Home = ({ navigation }) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,11 @@ const Home = () => {
         <Container>
             <HorizontalScroll>
                 {products.map(product => (
-                    <Product key={product.id} item={product} />
+                    <Product
+                        key={product.id}
+                        item={product}
+                        navigation={navigation}
+                    />
                 ))}
             </HorizontalScroll>
         </Container>
