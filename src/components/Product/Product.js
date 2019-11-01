@@ -14,20 +14,19 @@ import {
     ButtonText,
 } from './styles';
 
-const Product = () => {
+const Product = ({ item }) => {
     return (
         <Container>
             <Image
                 source={{
-                    uri:
-                        'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg',
+                    uri: item.image,
                 }}
                 resizeMode="contain"
             />
             <Info>
                 <InfoText>
-                    <Title>Tênis de Caminhada Leve Confortável</Title>
-                    <Price>R$179,90</Price>
+                    <Title>{item.title}</Title>
+                    <Price>{item.formattedPrice}</Price>
                 </InfoText>
                 <Button>
                     <Counter>

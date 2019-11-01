@@ -22,7 +22,9 @@ export const InfoText = styled.View`
     padding: 5px;
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text.attrs({
+    numberOfLines: 2,
+})`
     font-size: 16px;
     font-weight: normal;
     margin-bottom: 5px;
