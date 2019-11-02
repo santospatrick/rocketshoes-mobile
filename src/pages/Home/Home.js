@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Product from '../../components/Product';
 import { Container, HorizontalScroll } from './styles';
 import api from '../../services/api';
@@ -33,6 +34,12 @@ const Home = ({ navigation }) => {
             </HorizontalScroll>
         </Container>
     );
+};
+
+Home.propTypes = {
+    navigation: PropTypes.shape({
+        navigate: PropTypes.func,
+    }).isRequired,
 };
 
 export default Home;

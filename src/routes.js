@@ -13,7 +13,7 @@ const AppNavigator = createStackNavigator(
     },
     {
         defaultNavigationOptions: navigation => ({
-            header: <Header navigation={navigation} />,
+            header: <Header {...navigation} />,
         }),
         cardStyle: {
             backgroundColor: '#141419',

@@ -19,7 +19,7 @@ export const Image = styled.Image.attrs({
     width: 185px;
 `;
 
-export const Cart = styled.View`
+export const Cart = styled.TouchableOpacity`
     position: relative;
     margin-right: 5px;
 `;

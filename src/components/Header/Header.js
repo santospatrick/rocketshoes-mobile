@@ -1,12 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 import { Wrapper, Container, Image, Cart, Counter, Number } from './styles';
 
 const Header = ({ navigation }) => {
     return (
         <Wrapper>
             <Container>
-                <Image source={require('../../assets/images/logo.png')} />
+                <TouchableHighlight onPress={() => navigation.goBack()}>
+                    <Image source={require('../../assets/images/logo.png')} />
+                </TouchableHighlight>
                 <Cart>
                     <Icon name="shopping-basket" color="#FFF" size={24} />
                     <Counter>
@@ -16,6 +20,12 @@ const Header = ({ navigation }) => {
             </Container>
         </Wrapper>
     );
+};
+
+Header.propTypes = {
+    navigation: PropTypes.shape({
+        goBack: PropTypes.func,
+    }).isRequired,
 };
 
 export default Header;

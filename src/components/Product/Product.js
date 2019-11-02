@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -46,6 +47,17 @@ const Product = ({ item, navigation }) => {
             </Info>
         </Container>
     );
+};
+
+Product.propTypes = {
+    item: PropTypes.shape({
+        image: PropTypes.string,
+        title: PropTypes.string,
+        formattedPrice: PropTypes.string,
+    }).isRequired,
+    navigation: PropTypes.shape({
+        navigate: PropTypes.func,
+    }).isRequired,
 };
 
 export default Product;
