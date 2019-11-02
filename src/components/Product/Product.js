@@ -15,7 +15,7 @@ import {
     CounterText,
     ButtonText,
 } from './styles';
-import { addItem } from '../../store/modules/cart/actions';
+import { addToCartRequest } from '../../store/modules/cart/actions';
 
 const Product = ({ item, navigation }) => {
     const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const Product = ({ item, navigation }) => {
                 </InfoText>
                 <Button
                     onPress={() => {
-                        dispatch(addItem(item));
+                        dispatch(addToCartRequest(item.id));
                         navigation.navigate('Cart');
                     }}>
                     <Counter>
@@ -51,6 +51,7 @@ const Product = ({ item, navigation }) => {
 
 Product.propTypes = {
     item: PropTypes.shape({
+        id: PropTypes.number,
         image: PropTypes.string,
         title: PropTypes.string,
         formattedPrice: PropTypes.string,

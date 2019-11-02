@@ -1,6 +1,6 @@
 export default (state = [], action) => {
     switch (action.type) {
-        case '@card/ADD':
+        case '@cart/ADD_SUCCESS':
             return [...state, action.product];
         default:
             return state;
