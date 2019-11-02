@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.ScrollView`
@@ -39,4 +40,19 @@ export const ButtonText = styled.Text`
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
+`;
+
+export const EmptyText = styled.Text`
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+`;
+
+export const ShoppingCart = styled(Icon).attrs({
+    name: 'remove-shopping-cart',
+    size: 64,
+    color: '#eee',
+})`
+    align-self: center;
+    margin-bottom: 15px;
 `;

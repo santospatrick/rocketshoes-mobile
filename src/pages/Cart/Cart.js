@@ -1,6 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Container, Card, Button, ButtonText, Total, Price } from './styles';
+import {
+    Container,
+    Card,
+    Button,
+    ButtonText,
+    Total,
+    Price,
+    ShoppingCart,
+    EmptyText,
+} from './styles';
 import CartItem from '../../components/CartItem/CartItem';
 import { formatPrice } from '../../util/format';
 
@@ -23,18 +32,25 @@ const Cart = () => {
 
     return (
         <Container>
-            <Card>
-                {products.map(item => (
-                    <CartItem key={item.id} item={item} />
-                ))}
+            {products.length ? (
+                <Card>
+                    {products.map(item => (
+                        <CartItem key={item.id} item={item} />
+                    ))}
 
-                <Total>Total</Total>
-                <Price>{total}</Price>
+                    <Total>Total</Total>
+                    <Price>{total}</Price>
 
-                <Button>
-                    <ButtonText>Finalizar pedido</ButtonText>
-                </Button>
-            </Card>
+                    <Button>
+                        <ButtonText>Finalizar pedido</ButtonText>
+                    </Button>
+                </Card>
+            ) : (
+                <Card>
+                    <ShoppingCart />
+                    <EmptyText>Seu carrinho está vazio.</EmptyText>
+                </Card>
+            )}
         </Container>
     );
 };

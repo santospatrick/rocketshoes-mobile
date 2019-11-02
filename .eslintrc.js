@@ -10,7 +10,8 @@ module.exports = {
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
-    __DEV__: true
+    __DEV__: true,
+    alert: true
   },
   parser: 'babel-eslint',
   parserOptions: {
@@ -36,6 +37,7 @@ module.exports = {
     'global-require': 'off',
     'react/jsx-props-no-spreading': 'off',
     'no-console': 'off',
-    'no-param-reassign': 'off'
+    'no-param-reassign': 'off',
+    'no-alert': 'off'
   },
 };

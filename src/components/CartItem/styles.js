@@ -7,6 +7,7 @@ export const Container = styled.View`
 
 export const Content = styled.View`
     flex-direction: row;
+    align-items: center;
 `;
 
 export const Image = styled.Image.attrs({
@@ -42,7 +43,6 @@ export const Footer = styled.View`
     border-radius: 4px;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     padding: 0 10px;
     margin-top: 10px;
 `;
@@ -55,11 +55,12 @@ export const Input = styled.TextInput.attrs({
     background-color: #fff;
     border-radius: 4px;
     color: #666;
-    margin-left: 20px;
     padding: 0 12px;
+    margin: 0 5px;
 `;
 
 export const Total = styled.Text`
     font-weight: bold;
     font-size: 16px;
+    margin-left: auto;
 `;

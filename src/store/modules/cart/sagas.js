@@ -6,7 +6,6 @@ import { navigate } from '../../../services/navigation';
 
 function* addToCart({ id }) {
     const product = yield select(state => state.cart.find(p => p.id === id));
-    console.tron.log(product);
     const stock = yield call(api, `/stock/${id}`);
 
     const stockAmount = stock.data.amount;
@@ -29,12 +28,25 @@ function* addToCart({ id }) {
             formattedPrice: formatPrice(response.data.price),
         };
         yield put(addToCartSuccess(data));
+        navigate('Cart');
+    }
+}
+
+function* updateAmount({ id, amount }) {
+    if (amount <= 0) return;
+
+    const stock = yield call(api.get, `stock/${id}`);
+    const stockAmount = stock.data.amount;
+
+    if (amount > stockAmount) {
+        alert('Quantidade solicitada fora de estoque');
+        return;
     }
 
-    navigate('Cart');
+    yield put(updateAmountSuccess(id, amount));
 }
 
 export default all([
     takeLatest('@cart/ADD_REQUEST', addToCart),
-    takeLatest('@cart/UPDATE_AMOUNT_REQUEST', addToCart),
+    takeLatest('@cart/UPDATE_AMOUNT_REQUEST', updateAmount),
 ]);
