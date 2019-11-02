@@ -28,7 +28,7 @@ const CartItem = ({ item }) => {
             </Content>
             <Footer>
                 <Input value={String(item.amount)} />
-                <Total>TO-DO: R$539,70</Total>
+                <Total>{item.subtotal}</Total>
             </Footer>
         </Container>
     );
@@ -41,6 +41,7 @@ CartItem.propTypes = {
         title: PropTypes.string,
         formattedPrice: PropTypes.string,
         amount: PropTypes.number,
+        subtotal: PropTypes.string,
     }).isRequired,
 };
 

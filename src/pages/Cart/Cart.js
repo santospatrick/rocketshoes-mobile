@@ -2,9 +2,24 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Card, Button, ButtonText, Total, Price } from './styles';
 import CartItem from '../../components/CartItem/CartItem';
+import { formatPrice } from '../../util/format';
 
 const Cart = () => {
-    const products = useSelector(state => state.cart);
+    const products = useSelector(state =>
+        state.cart.map(product => ({
+            ...product,
+            subtotal: formatPrice(product.amount * product.price),
+        })),
+    );
+
+    const total = useSelector(state =>
+        formatPrice(
+            state.cart.reduce(
+                (acc, product) => acc + product.price * product.amount,
+                0,
+            ),
+        ),
+    );
 
     return (
         <Container>
@@ -14,7 +29,7 @@ const Cart = () => {
                 ))}
 
                 <Total>Total</Total>
-                <Price>R$ 1619,10</Price>
+                <Price>{total}</Price>
 
                 <Button>
                     <ButtonText>Finalizar pedido</ButtonText>
