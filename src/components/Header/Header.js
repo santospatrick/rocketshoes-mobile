@@ -12,7 +12,14 @@ const Header = ({ navigation }) => {
                     <Image source={require('../../assets/images/logo.png')} />
                 </TouchableHighlight>
                 <Cart>
-                    <Icon name="shopping-basket" color="#FFF" size={24} />
+                    <Icon
+                        name="shopping-basket"
+                        color="#FFF"
+                        size={24}
+                        onPress={() => {
+                            navigation.navigate('Cart');
+                        }}
+                    />
                     <Counter>
                         <Number>3</Number>
                     </Counter>
@@ -25,6 +32,7 @@ const Header = ({ navigation }) => {
 Header.propTypes = {
     navigation: PropTypes.shape({
         goBack: PropTypes.func,
+        navigate: PropTypes.func,
     }).isRequired,
 };
 

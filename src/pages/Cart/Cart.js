@@ -10,7 +10,7 @@ const Cart = () => {
         <Container>
             <Card>
                 {products.map(item => (
-                    <CartItem key={item.id} />
+                    <CartItem key={item.id} item={item} />
                 ))}
 
                 <Total>Total</Total>

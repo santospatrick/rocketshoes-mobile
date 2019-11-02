@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
     Container,
     Content,
@@ -11,27 +12,35 @@ import {
     Total,
 } from './styles';
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
     return (
         <Container>
             <Content>
                 <Image
                     source={{
-                        uri:
-                            'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg',
+                        uri: item.image,
                     }}
                 />
                 <Text>
-                    <Title>Tênis de Caminhada Leve Confortável</Title>
-                    <Price>R$179,90</Price>
+                    <Title>{item.title}</Title>
+                    <Price>{item.formattedPrice}</Price>
                 </Text>
             </Content>
             <Footer>
-                <Input value="3" />
-                <Total>R$539,70</Total>
+                <Input value="1" />
+                <Total>TO-DO: R$539,70</Total>
             </Footer>
         </Container>
     );
+};
+
+CartItem.propTypes = {
+    item: PropTypes.shape({
+        id: PropTypes.number,
+        image: PropTypes.string,
+        title: PropTypes.string,
+        formattedPrice: PropTypes.string,
+    }).isRequired,
 };
 
 export default CartItem;
