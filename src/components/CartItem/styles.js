@@ -47,7 +47,9 @@ export const Footer = styled.View`
     margin-top: 10px;
 `;
 
-export const Input = styled.TextInput`
+export const Input = styled.TextInput.attrs({
+    editable: false,
+})`
     width: 50px;
     height: 26px;
     background-color: #fff;

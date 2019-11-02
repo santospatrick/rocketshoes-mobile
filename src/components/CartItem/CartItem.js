@@ -27,7 +27,7 @@ const CartItem = ({ item }) => {
                 </Text>
             </Content>
             <Footer>
-                <Input value="1" />
+                <Input value={String(item.amount)} />
                 <Total>TO-DO: R$539,70</Total>
             </Footer>
         </Container>
@@ -40,6 +40,7 @@ CartItem.propTypes = {
         image: PropTypes.string,
         title: PropTypes.string,
         formattedPrice: PropTypes.string,
+        amount: PropTypes.number,
     }).isRequired,
 };
 

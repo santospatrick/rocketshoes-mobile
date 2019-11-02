@@ -35,6 +35,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'global-require': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'no-console': 'off'
+    'no-console': 'off',
+    'no-param-reassign': 'off'
   },
 };

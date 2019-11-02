@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
@@ -19,6 +19,12 @@ import { addToCartRequest } from '../../store/modules/cart/actions';
 
 const Product = ({ item, navigation }) => {
     const dispatch = useDispatch();
+    const amount = useSelector(state =>
+        state.cart.reduce((acc, product) => {
+            acc[product.id] = product.amount;
+            return acc;
+        }, {}),
+    );
 
     return (
         <Container>
@@ -40,7 +46,7 @@ const Product = ({ item, navigation }) => {
                     }}>
                     <Counter>
                         <Icon name="add-shopping-cart" color="#FFF" size={20} />
-                        <CounterText>3</CounterText>
+                        <CounterText>{amount[item.id] || 0}</CounterText>
                     </Counter>
                     <ButtonText>Adicionar</ButtonText>
                 </Button>
@@ -55,6 +61,7 @@ Product.propTypes = {
         image: PropTypes.string,
         title: PropTypes.string,
         formattedPrice: PropTypes.string,
+        amount: PropTypes.number,
     }).isRequired,
     navigation: PropTypes.shape({
         navigate: PropTypes.func,

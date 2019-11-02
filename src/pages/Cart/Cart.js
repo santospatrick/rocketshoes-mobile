@@ -4,7 +4,7 @@ import { Container, Card, Button, ButtonText, Total, Price } from './styles';
 import CartItem from '../../components/CartItem/CartItem';
 
 const Cart = () => {
-    const products = useSelector(state => state);
+    const products = useSelector(state => state.cart);
 
     return (
         <Container>
