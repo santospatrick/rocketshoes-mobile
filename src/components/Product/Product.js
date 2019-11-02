@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
@@ -13,8 +14,11 @@ import {
     CounterText,
     ButtonText,
 } from './styles';
+import { addItem } from '../../store/modules/cart/actions';
 
 const Product = ({ item, navigation }) => {
+    const dispatch = useDispatch();
+
     return (
         <Container>
             <Image
@@ -28,7 +32,11 @@ const Product = ({ item, navigation }) => {
                     <Title>{item.title}</Title>
                     <Price>{item.formattedPrice}</Price>
                 </InfoText>
-                <Button onPress={() => navigation.navigate('Cart')}>
+                <Button
+                    onPress={() => {
+                        dispatch(addItem(item));
+                        navigation.navigate('Cart');
+                    }}>
                     <Counter>
                         <Icon name="add-shopping-cart" color="#FFF" size={20} />
                         <CounterText>3</CounterText>

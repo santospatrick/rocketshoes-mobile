@@ -1,13 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Container, Card, Button, ButtonText, Total, Price } from './styles';
 import CartItem from '../../components/CartItem/CartItem';
 
 const Cart = () => {
+    const products = useSelector(state => state);
+
     return (
         <Container>
             <Card>
-                <CartItem />
-                <CartItem />
+                {products.map(item => (
+                    <CartItem key={item.id} />
+                ))}
 
                 <Total>Total</Total>
                 <Price>R$ 1619,10</Price>
