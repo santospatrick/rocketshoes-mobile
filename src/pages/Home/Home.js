@@ -5,7 +5,7 @@ import { Container, HorizontalScroll } from './styles';
 import api from '../../services/api';
 import { formatPrice } from '../../util/format';
 
-const Home = ({ navigation }) => {
+const Home = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -25,21 +25,11 @@ const Home = ({ navigation }) => {
         <Container>
             <HorizontalScroll>
                 {products.map(product => (
-                    <Product
-                        key={product.id}
-                        item={product}
-                        navigation={navigation}
-                    />
+                    <Product key={product.id} item={product} />
                 ))}
             </HorizontalScroll>
         </Container>
     );
-};
-
-Home.propTypes = {
-    navigation: PropTypes.shape({
-        navigate: PropTypes.func,
-    }).isRequired,
 };
 
 export default Home;

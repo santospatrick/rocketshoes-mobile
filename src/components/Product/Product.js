@@ -17,7 +17,7 @@ import {
 } from './styles';
 import { addToCartRequest } from '../../store/modules/cart/actions';
 
-const Product = ({ item, navigation }) => {
+const Product = ({ item }) => {
     const dispatch = useDispatch();
     const amount = useSelector(state =>
         state.cart.reduce((acc, product) => {
@@ -42,7 +42,6 @@ const Product = ({ item, navigation }) => {
                 <Button
                     onPress={() => {
                         dispatch(addToCartRequest(item.id));
-                        navigation.navigate('Cart');
                     }}>
                     <Counter>
                         <Icon name="add-shopping-cart" color="#FFF" size={20} />
@@ -62,9 +61,6 @@ Product.propTypes = {
         title: PropTypes.string,
         formattedPrice: PropTypes.string,
         amount: PropTypes.number,
-    }).isRequired,
-    navigation: PropTypes.shape({
-        navigate: PropTypes.func,
     }).isRequired,
 };
 
